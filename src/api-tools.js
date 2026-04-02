@@ -1,11 +1,11 @@
-export default async (formData) => {
-  
-  const API_ENDPOINT = 'https:/weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline';
-  const API_KEY = process.env.API_KEY;
+async function getWeatherData(formData) {
   const location = formData.get('location');
 
+  if (!location) {
+    return res.status(400).json({ error: 'Location is required' });
+  }
   try {
-    const response = await fetch(`${API_ENDPOINT}/${location}?key=${API_KEY}`);
+    const response = await fetch(`https://weather-app-w2pf.onrender.com/weather?location=${location}`);
     const data = await response.json();
     return data;
   } catch (err) {
@@ -13,3 +13,18 @@ export default async (formData) => {
     return Promise.reject(err);
   }
 }
+
+async function getAQIData(latitude, longitude) {
+  try {
+    const response = await fetch(
+      `https://weather-app-w2pf.onrender.com/aqi?latitude=${latitude}&longitude=${longitude}`
+    );
+    const data = await response.json();
+    return data;
+  } catch (err) {
+    console.log(err);
+    return Promise.reject(err);
+  }
+}
+
+export { getWeatherData, getAQIData };

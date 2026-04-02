@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather App</title>
 </head>
-<body>
-  <div id="input">
+<body id="root">
+  <div id="form-container">
     <form id="form">
       <legend>Weather Form</legend>
       <label for="location">Enter a zip code or city:</label>
@@ -14,18 +14,8 @@
       <button type="submit" id="submit">Search</button>
     </form>
   </div>
-  <div id="weather">
-    <!--modified by weather module-->
-    <div id="severe-weather"></div>
-    <div id="temperature"></div>
-    <div id="precipitation"></div>
-    <div id="wind"></div>
-    <div id="air-pressure"></div>
-    <div id="air-quality"></div>
-    <div id="uv-index"></div>
-    <div id="sun-data"></div>
-    <div id="moon-data"></div>
-    <div id="forecast"></div>
+  <div id="display">
+    <!--Modules display weather here-->
   </div>
 </body>
 </html>

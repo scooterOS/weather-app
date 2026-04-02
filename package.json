@@ -18,7 +18,11 @@
   },
   "homepage": "https://github.com/scooterOS/weather-app#readme",
   "dependencies": {
-    "dotenv": "^17.3.1"
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.0",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.3.2",
+    "node-fetch": "^3.3.2"
   },
   "devDependencies": {
     "css-loader": "^7.1.4",
