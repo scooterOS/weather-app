@@ -3,7 +3,9 @@ function addElem(parentElem, type, text='', classList=[]) {
 
   elem.textContent = text;
 
-  if (classList) elem.classList.add(...classList);
+  if (Array.isArray(classList) && classList.length) {
+    elem.classList.add(...classList);
+  }
   
   parentElem.appendChild(elem);
 

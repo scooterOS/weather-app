@@ -2,7 +2,6 @@
   "name": "weather-app",
   "version": "1.0.0",
   "description": "See the weather anywhere in the US.",
-  "main": "src/weather.js",
   "scripts": {
     "start": "NODE_ENV=development webpack serve --mode development",
     "build": "NODE_ENV=production webpack --mode production"
