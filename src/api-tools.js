@@ -2,10 +2,14 @@ async function getWeatherData(formData) {
   const location = formData.get('location');
 
   if (!location) {
-    return res.status(400).json({ error: 'Location is required' });
+    return new Error('Location is required');
   }
   try {
     const response = await fetch(`https://weather-app-w2pf.onrender.com/weather?location=${location}`);
+    
+    if (!response.ok) {
+      throw new Error(`API error: ${response.status}`);
+    }
     const data = await response.json();
     return data;
   } catch (err) {
@@ -19,6 +23,10 @@ async function getAQIData(latitude, longitude) {
     const response = await fetch(
       `https://weather-app-w2pf.onrender.com/aqi?latitude=${latitude}&longitude=${longitude}`
     );
+    
+    if (!response.ok) {
+      throw new Error(`API error: ${response.status}`);
+    }
     const data = await response.json();
     return data;
   } catch (err) {

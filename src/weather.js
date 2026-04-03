@@ -66,8 +66,8 @@ class AQI {
     const formData = new FormData($form);
     const weatherData = await getWeatherData(formData);
     const weather = new Weather(weatherData);
-    //const aqiData = await getAQIData(weather.latitude, weather.longitude);
-    //weather.aqi = new AQI(aqiData[0]);
+    
+    console.log(weatherData);
     
     showWeather($display, weather);
   });

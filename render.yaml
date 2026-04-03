@@ -1,0 +1,13 @@
+# API Web Service: builds only server/ (no root webpack). Set WEATHER_KEY and AQI_KEY in the dashboard.
+services:
+  - type: web
+    runtime: node
+    name: weather-app
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: WEATHER_KEY
+        sync: false
+      - key: AQI_KEY
+        sync: false
